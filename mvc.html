@@ -142,7 +142,7 @@ class Habbit(models.Model):
                     </section>
                     <section>
                         <h4>View</h4>
-                        <pre class="pre-html">
+                        <pre>
                         habits/views.py
                         <code class="python hljs monokai" data-trim contenteditable>                            
 from django.shortcuts import render
@@ -161,7 +161,7 @@ def detail(request, user_id):
                     </section>
                     <section>
                         <h4>Templates</h4>
-                        <pre class="pre-html">
+                        <pre>
                         templates/habbits/index.html
                         <code class="html hljs monokai" data-trim contenteditable>                            
 {% if users %}
@@ -173,6 +173,18 @@ def detail(request, user_id):
 {% else %}
     <p>No user found. // should be 404 res code</p>
 {% endif %}
+                        </code>
+                        </pre>
+                    </section>
+                </section>
+                <section>
+                    <h2>Sails</h2>
+                    <section>
+                        <h4>Installation</h4>
+                        <pre class="pre-html">
+                        <code class="shell hljs monokai" data-trim contenteditable>                            
+sudo apt install npm
+npm install -g sails
                         </code>
                         </pre>
                     </section>
