@@ -6,13 +6,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-        <link rel="stylesheet" href="vendors/reveal.js/css/reveal.css">
-        <link rel="stylesheet" href="vendors/reveal.js/css/theme/beige.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/beige.css" id="theme">
         <script>
             var link = document.createElement('link');
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = window.location.search.match(/print-pdf/gi) ? 'vendors/reveal.js/css/print/pdf.css' : 'vendors/reveal.js/css/print/paper.css';
+            link.href = window.location.search.match(/print-pdf/gi) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/paper.css';
             document.getElementsByTagName('head')[0].appendChild(link);
         </script>
     </head>
@@ -65,7 +65,7 @@
                         <code class="shell hljs monokai" data-trim contenteditable>                            
 pip3 install django
 # create a Project
-django-admin startproject badHabbits
+django-admin startproject site
 # run Dev server
 python manage.py runserver
                         </code>
@@ -156,6 +156,14 @@ class Habbit(models.Model):
                         </pre>
                     </section>
                     <section>
+                        <h4>Migration</h4>
+                        <pre>
+                        <code class="shell hljs monokai" data-trim contenteditable>
+$python manage.py migrate
+                        </code>
+                        </pre>
+                    </section>
+                    <section>
                         <h4>View</h4>
                         <pre>
                         habits/views.py
@@ -198,7 +206,7 @@ def detail(request, user_id):
                         <h4>Installation</h4>
                         <pre class="pre-html">
                         <code class="shell hljs monokai" data-trim contenteditable>                            
-sudo apt install npm
+sudo apt-get install npm
 npm install -g sails
                         </code>
                         </pre>
@@ -207,8 +215,8 @@ npm install -g sails
             </div>
         </div>
 
-        <script src="vendors/reveal.js/lib/js/head.min.js"></script>
-        <script src="vendors/reveal.js/js/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
 
         <script>
             Reveal.initialize({
@@ -218,16 +226,16 @@ npm install -g sails
               center: true,
               transition: 'slide',
               dependencies: [
-                {src: 'vendors/reveal.js/lib/js/classList.js', condition: function () {
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js', condition: function () {
                     return !document.body.classList;
                   }},
-                {src: 'vendors/reveal.js/plugin/highlight/highlight.js', async: true, condition: function () {
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, condition: function () {
                     return !!document.querySelector('pre code');
                   }, callback: function () {
                     hljs.initHighlightingOnLoad();
                   }},
-                {src: 'vendors/reveal.js/plugin/zoom-js/zoom.js', async: true},
-                {src: 'vendors/reveal.js/plugin/notes/notes.js', async: true}
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/zoom-js/zoom.js', async: true},
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js', async: true}
               ]
             });
         </script>
