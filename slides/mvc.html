@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/beige.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
         <script>
             var link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -62,7 +63,7 @@
                     <section>
                         <h4>Installation</h4>
                         <pre class="pre-html">
-                        <code class="shell hljs monokai" data-trim contenteditable>                            
+                        <code class="shell hljs" data-trim contenteditable> 
 pip3 install django
 # create a Project
 django-admin startproject site
@@ -74,7 +75,7 @@ python manage.py runserver
                     <section>
                         <h4>Architecture</h4>
                         <pre class="pre-html">
-                        <code class="shell hljs monokai" data-trim contenteditable>                            
+                        <code class="shell hljs" data-trim contenteditable> 
 badHabits/
     manage.py
     badHabbits/
@@ -88,7 +89,7 @@ badHabits/
                     <section>
                         <h4>App vs Project</h4>
                         <pre class="pre-html">
-                        <code class="shell hljs monokai" data-trim contenteditable>                            
+                        <code class="shell hljs" data-trim contenteditable>  
 python manage.py startapp habbits
 # should generate
 habits/
@@ -108,7 +109,7 @@ habits/
                         <h4>Routing</h4>
                         <pre class="pre-html">
                         habits/urls.py
-                        <code class="python hljs monokai" data-trim contenteditable>                            
+                        <code class="python hljs" data-trim contenteditable>  
 from django.conf.urls import url
 from . import views
 
@@ -123,12 +124,12 @@ urlpatterns = [
                         <h4>Routing 2</h4>
                         <pre class="pre-html">
                         urls.py
-                        <code class="python hljs monokai" data-trim contenteditable>                            
+                        <code class="python hljs" data-trim contenteditable>  
 from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^techies/', include('techies.urls')),
+    url(r'^users/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
 ]
                         </code>
@@ -138,7 +139,7 @@ urlpatterns = [
                         <h4>Model</h4>
                         <pre class="pre-html">
                         habits/models.py
-                        <code class="python hljs monokai" data-trim contenteditable>                            
+                        <code class="python hljs" data-trim contenteditable>  
 from django.db import models
 
 class User(models.Model):
@@ -158,7 +159,7 @@ class Habbit(models.Model):
                     <section>
                         <h4>Migration</h4>
                         <pre>
-                        <code class="shell hljs monokai" data-trim contenteditable>
+                        <code class="shell hljs" data-trim contenteditable>
 $python manage.py migrate
                         </code>
                         </pre>
@@ -167,7 +168,7 @@ $python manage.py migrate
                         <h4>View</h4>
                         <pre>
                         habits/views.py
-                        <code class="python hljs monokai" data-trim contenteditable>                            
+                        <code class="python hljs" data-trim contenteditable>  
 from django.shortcuts import render
 from .models import User
 
@@ -186,7 +187,7 @@ def detail(request, user_id):
                         <h4>Templates</h4>
                         <pre>
                         templates/habbits/index.html
-                        <code class="html hljs monokai" data-trim contenteditable>                            
+                        <code class="html hljs" data-trim contenteditable>  
 {% if users %}
     <ul>
     {% for user in users %}
@@ -194,7 +195,7 @@ def detail(request, user_id):
     {% endfor %}
     </ul>
 {% else %}
-    <p>No user found. // should be 404 res code</p>
+    <p>No user found. // should be 404 response code</p>
 {% endif %}
                         </code>
                         </pre>
@@ -204,12 +205,149 @@ def detail(request, user_id):
                     <h2>Sails</h2>
                     <section>
                         <h4>Installation</h4>
-                        <pre class="pre-html">
-                        <code class="shell hljs monokai" data-trim contenteditable>                            
-sudo apt-get install npm
-npm install -g sails
-                        </code>
-                        </pre>
+                        <pre><code class="shell hljs" data-trim contenteditable>
+$ sudo apt-get install npm
+$ npm install -g sails
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Getting started</h4>
+                        <pre><code class="shell hljs" data-trim contenteditable>
+# Project creation
+$ sails new habits
+
+$ cd habits
+
+# Starting dev server
+$ sails lift
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Creating APIs</h4>
+                        <pre><code class="shell hljs" data-trim contenteditable>
+$ sails generate api user
+$ sails  generate api habbit
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Model 1</h4>
+                        <pre>
+api/models/User.js
+                        <code class="javascript hljs" data-trim contenteditable>
+module.exports = {
+  attributes: {
+    name: {
+      type: 'string',
+      maxLength: 28,
+      minLength: 2
+    },
+    habits: {
+      collection: 'habit',
+      via: 'user'
+    }
+  }
+};
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Model 2</h4>
+                        <pre>
+api/models/Habit.js
+                        <code class="javascript hljs" data-trim contenteditable>
+module.exports = {
+  attributes: {
+    name: {
+      type: 'string',
+      maxLength: 31,
+      minLength: 4,
+      required: true
+    },
+    occurence {
+      type: 'integer',
+      defaultsTo: 0
+    },
+    user: {
+      model: 'user',
+      required: true
+    }
+  }
+};
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h4>Running the api</h4>
+                        <ul>
+                            <li>Creating a user:<br>
+                                <a href="http://localhost:1337/user/create?name=Meher" target="_blank">http://localhost:1337/user/create?name=Meher</a>
+                            </li>
+                            <li>Creating a habit for the above user:<br>
+                                <a href="http://localhost:1337/habit/create?name=eating%20fingers&user=1" target="_blank">http://localhost:1337/habit/create?name=eating%20fingers&user=1</a>
+                            </li>
+                            <li>Getting all habits:<br>
+                                <a href="http://localhost:1337/habit" target="_blank">http://localhost:1337/habit</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>Controller</h4>
+                        <pre>
+api/controllers/HabitController.js
+                        <code class="javascript hljs" data-trim contenteditable>
+module.exports = {
+  happened: function (req, res) {
+    Habit.findOne({id: req.param('habit')}).exec(function(err, habit){
+      habit.occurence++;
+      habit.save(function(err){
+        return res.json(habit);
+      });
+    });
+  }
+};
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h2>How it really must be</h2>
+                    <section>
+                        <pre>
+api/controllers/HabitController.js
+                        <code class="javascript hljs" data-trim contenteditable>
+module.exports = {
+  happened: function (req, res) {
+    if(!req.param('habit'))
+      return res.badRequest({error: "missing param", message: "no habit id was provided"});
+    Habit.findOne({id: req.param('habit')}).exec(function(err, habit){
+      if(err)
+        return res.serverError(err);
+      if(!habit)
+        return res.notFound();
+      habit.happened(function(err){
+        if(err)
+          return res.serverError(err);
+        return res.json({status: "success", message: "It just happened again !", data: habit});
+      });
+    });
+  }
+};
+                        </code></pre>
+                        <pre>
+                    </section>
+                    <section>
+                        <h4>Fat model thin controller</h4>
+                        <pre>
+api/models/Habit.js
+                        <code class="javascript hljs" data-trim contenteditable>
+module.exports = {
+  attributes: {
+    /* ... */
+    ,
+    happened: function(cb){
+      this.occurence++;
+      return this.save(cb);
+    }
+  }
+};
+                        </code></pre>
                     </section>
                 </section>
             </div>
@@ -229,9 +367,7 @@ npm install -g sails
                 {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js', condition: function () {
                     return !document.body.classList;
                   }},
-                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, condition: function () {
-                    return !!document.querySelector('pre code');
-                  }, callback: function () {
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, callback: function () {
                     hljs.initHighlightingOnLoad();
                   }},
                 {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/zoom-js/zoom.js', async: true},
