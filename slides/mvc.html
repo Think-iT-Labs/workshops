@@ -90,7 +90,7 @@ badHabits/
                         <h4>App vs Project</h4>
                         <pre class="pre-html">
                         <code class="shell hljs" data-trim contenteditable>  
-python manage.py startapp habbits
+python manage.py startapp habits
 # should generate
 habits/
     __init__.py
@@ -175,7 +175,7 @@ from .models import User
 def index(request):
     users = Techy.objects.order_by('-name')[:10]
     context = {'users': users}
-    return render(request, 'habbits/index.html', context)
+    return render(request, 'habits/index.html', context)
 
 def detail(request, user_id):
     user = Techy.objects.get(pk=user_id)
@@ -186,7 +186,7 @@ def detail(request, user_id):
                     <section>
                         <h4>Templates</h4>
                         <pre>
-                        templates/habbits/index.html
+                        templates/habits/index.html
                         <code class="html hljs" data-trim contenteditable>  
 {% if users %}
     <ul>
@@ -226,7 +226,7 @@ $ sails lift
                         <h4>Creating APIs</h4>
                         <pre><code class="shell hljs" data-trim contenteditable>
 $ sails generate api user
-$ sails  generate api habbit
+$ sails  generate api habit
                         </code></pre>
                     </section>
                     <section>
@@ -355,7 +355,6 @@ module.exports = {
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
-
         <script>
             Reveal.initialize({
               controls: true,
