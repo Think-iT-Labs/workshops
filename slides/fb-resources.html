@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FB Resources Walk-through</title>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/beige.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
+        <script>
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match(/print-pdf/gi) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/paper.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>FB Resources Walk-through</h1>
+                    <p>
+                        <small>Presented by <a href="https://github.com/bashz">Bashz</a></small>
+                    </p>
+                </section>
+                <section>
+                    <h2>Resources</h2>
+                    <section>
+                        <h5>Closed Source Facebook Platform Products</h5>
+                        <p>
+                            <a href="https://developers.facebook.com/products/account-creation">Facebook Login and Account Kit</a>Simple, password-free account creation.<br>
+                            <a href="https://developers.facebook.com/products/analytics">Facebook Analytics</a> Measure, understand, and optimize the way people use your app.<br>
+                            <a href="https://developers.facebook.com/products/messenger/">Messenger Platform</a> Build bots and live-messaging tools.
+                        </p>
+                    </section>
+                    <section>
+                        <h5>Open Source Tools</h5>
+                        <p style="font-size: 28px">
+                            <a href="https://code.facebook.com/projects/176988925806765/react/">React</a> A JavaScript library for building user interfaces.<br>
+                            <a href="https://code.facebook.com/projects/450791118411445/react-native/">React Native</a> A framework for building native apps.<br>
+                            <a href="https://facebook.github.io/react-vr/">React VR</a> Build VR apps using only JavaScript.<br>
+                            <a href="https://caffe2.ai/">Caffe2</a> A lightweight, modular, and scalable deep learning framework.<br>
+                            <a href="http://frescolib.org/">Fresco</a> A powerful system for displaying images in Android apps.<br>
+                            <a href="https://fblitho.com/">Litho</a> A declarative UI framework for Android.<br>
+                            <a href="https://facebook.github.io/yoga/">ComponentKit Yoga</a> (specifically <a href="https://facebook.github.io/yoga/docs/api/yogakit/">YogaKit</a> which can be used in iOS apps!)<br>
+                            <a href="http://graphql.org/">GraphQL</a> A query language for your API.<br><a href="https://facebook.github.io/relay/">Relay</a> A JavaScript framework for building data-driven React apps.
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <h2><a href="https://developers.facebook.com/products/account-creation">Facebook Login and Account Kit</a></h2>
+                    <section>
+                        <h4>It offers</h4>
+                        <ul>
+                            <li>Passwordless login</li>
+                            <li>Easy account creation</li>
+                            <li>No fb account needed</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>It does not offers</h4>
+                        <ul>
+                            <li>Account linking</li>
+                            <li>Account info</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <h2><a href="https://developers.facebook.com/products/analytics">Facebook Analytics</a></h2>
+                    <section>
+                        <h4>It offers</h4>
+                        <ul>
+                            <li>Mesurement </li>
+                            <li>Easy account creation</li>
+                            <li>No fb account needed</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>It does not offers</h4>
+                        <ul>
+                            <li>Account linking</li>
+                            <li>Account info</li>
+                        </ul>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
+        <script>
+            Reveal.initialize({
+              controls: true,
+              progress: true,
+              history: true,
+              center: true,
+              transition: 'slide',
+              dependencies: [
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js', condition: function () {
+                    return !document.body.classList;
+                  }},
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                  }},
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/zoom-js/zoom.js', async: true},
+                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js', async: true}
+              ]
+            });
+        </script>
+    </body>
+</html>
+
