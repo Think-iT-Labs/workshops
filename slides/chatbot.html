@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChatBots</title>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Chatbots</h1>
+                <p>
+                    <small>Presented by
+                        <a href="https://github.com/bashz">Bashz</a>
+                    </small>
+                </p>
+            </section>
+            <section>
+                <h3>Concepts</h3>
+                <section>
+                    <h5>what are chatbots?</h5>
+                    <p class="fragment fade-up">In the IT field, a
+                        <b>bot</b> is a program that mimic on using functionalities that are designed for users.</p>
+                    <p class="fragment fade-up">In our case the bot will be consuming the chats features.</p>
+                </section>
+                <section>
+                    <h5>why chatbots are such a big opportunity?</h5>
+                    <p class="fragment fade-up">Increasing amount of messaging apps.</p>
+                    <p class="fragment fade-up">A new way of presenting information.</p>
+                </section>
+            </section>
+            <section>
+                <h3>Get the best of a chatbot</h3>
+                <section>
+                    <h5>Choose the plateform depending of your audiance</h5>
+                    <ul>
+                        <li class="fragment fade-up">Slack: Companies, devs & comunities</li>
+                        <li class="fragment fade-up">Telegram: Journalists, activists & comunities</li>
+                        <li class="fragment fade-up">IRC: devs (Gurus lives there)</li>
+                        <li class="fragment fade-up">
+                            <b class="fragment highlight-red">Messenger: Lambda users</b>
+                        </li>
+                        <li class="fragment fade-up">In website Bots: Website visitors</li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>Be the impossible human</h5>
+                    <p class="fragment fade-up">Don't repeat your self frequently.</p>
+                    <p class="fragment fade-up">Fulfill your purpose but also answer to random questions.</p>
+                    <p class="fragment fade-up">Be informal, sometimes funny and always polite.</p>
+                    <p class="fragment fade-up">Try to understand everything (AI: NLP).</p>
+                    <p class="fragment fade-up">Be as interactive as the plateform can go.</p>
+                </section>
+            </section>
+            <section>
+                <h3>Let's Build</h3>
+                <section>
+                    <h5>Design</h5>
+                    <img src="images/chatbot.png" alt="Messenger bot design" />
+                </section>
+                <section>
+                    <h5>Steps</h5>
+                    <ul>
+                        <ol class="fragment fade-up">Deployment</ol>
+                        <ol class="fragment fade-up">Validation</ol>
+                        <ol class="fragment fade-up">Unit tests</ol>
+                        <ol class="fragment fade-up">Development</ol>
+                        <ol class="fragment fade-up">Publishing</ol>
+                    </ul>
+                </section>
+            </section>
+        </div>
+        <footer style="position: absolute; bottom: 0; text-align: center; width: 100%">
+            <a href="https://think-it-labs.github.io/workshops/chatbot.html">
+                <small>
+                    https://think-it-labs.github.io/workshops/chatbot.html
+                </small>
+            </a>
+        </footer>
+    </div>
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'slide',
+            dependencies: [
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js', condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/zoom-js/zoom.js', async: true },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js', async: true }
+            ]
+        });
+        window.addEventListener("mousedown", handleClick, false);
+        window.addEventListener("contextmenu", function (e) { e.preventDefault(); }, false);
+
+        function handleClick(e) {
+            e.preventDefault();
+            if (e.button === 0) Reveal.next();
+            if (e.button === 2) Reveal.prev();
+        }
+    </script>
+</body>
+
+</html>
