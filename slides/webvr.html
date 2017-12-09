@@ -1,378 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>MVC - Django & Sails</title>
-        <meta charset="UTF-8">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/beige.css" id="theme">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
-        <script>
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = window.location.search.match(/print-pdf/gi) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/paper.css';
-            document.getElementsByTagName('head')[0].appendChild(link);
-        </script>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section>
-                    <h1>MVC - ShowCasing Django & Sails</h1>
-                    <p>
-                        <small>Presented by <a href="https://github.com/bashz">Bashz</a></small>
-                    </p>
-                </section>
-                <section>
-                    <section>
-                        <h2>Introduction</h2>
-                        <p>
-                            MVC - Model View Controller is a way among others to logically decompose your
-                            application, it is much spreaded in the web developpement.
-                        </p>
-                        <p>
-                            Devs might argue either or not a giving implementation is an MVC or not, we won't.
-                            <br>
-                            Names sometimes change toward MTC, MVW ... we will keep it simple.
-                        </p>
-                    </section>
-                    <section>
-                        <blockquote>
-                            "Model View Controller (MVC) is one of the most quoted (and most misquoted) patterns around. It started as a framework developed by Trygve Reenskaug for the Smalltalk platform in the late 1970s. Since then it has played an influential role in most UI frameworks and in the thinking about UI design."
-                        </blockquote>
-                    </section>
-                </section>
-                <section>
-                    <h2>Overview</h2>
-                    <section>
-                        <img src='images/mvc.png'>
-                    </section>
-                    <section>
-                        <ul>
-                            <li class="fragment">Model: The only source of truth.</li>
-                            <li class="fragment">View: The presentation of informations (rendering).</li>
-                            <li class="fragment">Controller: Handle the logic of your solution.</li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <h2>Django</h2>
-                    <section>
-                        <h4>Installation</h4>
-                        <pre class="pre-html">
-                        <code class="shell hljs" data-trim contenteditable> 
-pip3 install django
-# create a Project
-django-admin startproject site
-# run Dev server
-python manage.py runserver
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>Architecture</h4>
-                        <pre class="pre-html">
-                        <code class="shell hljs" data-trim contenteditable> 
-badHabits/
-    manage.py
-    badHabbits/
-        __init__.py
-        settings.py
-        urls.py
-        wsgi.py
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>App vs Project</h4>
-                        <pre class="pre-html">
-                        <code class="shell hljs" data-trim contenteditable>  
-python manage.py startapp habits
-# should generate
-habits/
-    __init__.py
-    admin.py
-    apps.py
-    migrations/
-        __init__.py
-    models.py
-    tests.py
-    views.py
 
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>Routing</h4>
-                        <pre class="pre-html">
-                        habits/urls.py
-                        <code class="python hljs" data-trim contenteditable>  
-from django.conf.urls import url
-from . import views
+<head>
+    <title>webVR</title>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="author" content="Bechir Nemlaghi">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css">
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
 
-urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^(?P&lt;user_id&gt;[0-9]+)/$', views.detail, name='detail'),
-]
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>Routing 2</h4>
-                        <pre class="pre-html">
-                        urls.py
-                        <code class="python hljs" data-trim contenteditable>  
-from django.conf.urls import include, url
-from django.contrib import admin
-
-urlpatterns = [
-    url(r'^users/', include('users.urls')),
-    url(r'^admin/', admin.site.urls),
-]
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>Model</h4>
-                        <pre class="pre-html">
-                        habits/models.py
-                        <code class="python hljs" data-trim contenteditable>  
-from django.db import models
-
-class User(models.Model):
-    name = models.CharField(max_length=200)
-    def __str__(self):
-    	return self.name
-
-class Habbit(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200)
-    occurences = models.IntegerField(default=0)
-        def __str__(self):
-            return self.name
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>Migration</h4>
-                        <pre>
-                        <code class="shell hljs" data-trim contenteditable>
-$python manage.py migrate
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>View</h4>
-                        <pre>
-                        habits/views.py
-                        <code class="python hljs" data-trim contenteditable>  
-from django.shortcuts import render
-from .models import User
-
-def index(request):
-    users = Techy.objects.order_by('-name')[:10]
-    context = {'users': users}
-    return render(request, 'habits/index.html', context)
-
-def detail(request, user_id):
-    user = Techy.objects.get(pk=user_id)
-    return render(request, 'user/detail.html', {'user': user})
-                        </code>
-                        </pre>
-                    </section>
-                    <section>
-                        <h4>Templates</h4>
-                        <pre>
-                        templates/habits/index.html
-                        <code class="html hljs" data-trim contenteditable>  
-{% if users %}
-    <ul>
-    {% for user in users %}
-        <li><a href="/user/{{ user.id }}/">{{ user.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No user found. // should be 404 response code</p>
-{% endif %}
-                        </code>
-                        </pre>
-                    </section>
-                </section>
-                <section>
-                    <h2>Sails</h2>
-                    <section>
-                        <h4>Installation</h4>
-                        <pre><code class="shell hljs" data-trim contenteditable>
-$ sudo apt-get install npm
-$ npm install -g sails
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Getting started</h4>
-                        <pre><code class="shell hljs" data-trim contenteditable>
-# Project creation
-$ sails new habits
-
-$ cd habits
-
-# Starting dev server
-$ sails lift
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Creating APIs</h4>
-                        <pre><code class="shell hljs" data-trim contenteditable>
-$ sails generate api user
-$ sails  generate api habit
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Model 1</h4>
-                        <pre>
-api/models/User.js
-                        <code class="javascript hljs" data-trim contenteditable>
-module.exports = {
-  attributes: {
-    name: {
-      type: 'string',
-      maxLength: 28,
-      minLength: 2
-    },
-    habits: {
-      collection: 'habit',
-      via: 'user'
-    }
-  }
-};
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Model 2</h4>
-                        <pre>
-api/models/Habit.js
-                        <code class="javascript hljs" data-trim contenteditable>
-module.exports = {
-  attributes: {
-    name: {
-      type: 'string',
-      maxLength: 31,
-      minLength: 4,
-      required: true
-    },
-    occurence {
-      type: 'integer',
-      defaultsTo: 0
-    },
-    user: {
-      model: 'user',
-      required: true
-    }
-  }
-};
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Running the api</h4>
-                        <ul>
-                            <li>Creating a user:<br>
-                                <a href="http://localhost:1337/user/create?name=Meher" target="_blank">http://localhost:1337/user/create?name=Meher</a>
-                            </li>
-                            <li>Creating a habit for the above user:<br>
-                                <a href="http://localhost:1337/habit/create?name=eating%20fingers&user=1" target="_blank">http://localhost:1337/habit/create?name=eating%20fingers&user=1</a>
-                            </li>
-                            <li>Getting all habits:<br>
-                                <a href="http://localhost:1337/habit" target="_blank">http://localhost:1337/habit</a>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h4>Controller</h4>
-                        <pre>
-api/controllers/HabitController.js
-                        <code class="javascript hljs" data-trim contenteditable>
-module.exports = {
-  happened: function (req, res) {
-    Habit.findOne({id: req.param('habit')}).exec(function(err, habit){
-      habit.occurence++;
-      habit.save(function(err){
-        return res.json(habit);
-      });
-    });
-  }
-};
-                        </code></pre>
-                    </section>
-                </section>
-                <section>
-                    <h2>How it really must be</h2>
-                    <section>
-                        <pre>
-api/controllers/HabitController.js
-                        <code class="javascript hljs" data-trim contenteditable>
-module.exports = {
-  happened: function (req, res) {
-    if(!req.param('habit'))
-      return res.badRequest({error: "missing param", message: "no habit id was provided"});
-    Habit.findOne({id: req.param('habit')}).exec(function(err, habit){
-      if(err)
-        return res.serverError(err);
-      if(!habit)
-        return res.notFound();
-      habit.happened(function(err){
-        if(err)
-          return res.serverError(err);
-        return res.json({status: "success", message: "It just happened again !", data: habit});
-      });
-    });
-  }
-};
-                        </code></pre>
-                        <pre>
-                    </section>
-                    <section>
-                        <h4>Fat model thin controller</h4>
-                        <pre>
-api/models/Habit.js
-                        <code class="javascript hljs" data-trim contenteditable>
-module.exports = {
-  attributes: {
-    /* ... */
-    ,
-    happened: function(cb){
-      this.occurence++;
-      return this.save(cb);
-    }
-  }
-};
-                        </code></pre>
-                    </section>
-                </section>
-            </div>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>webVR</h1>
+                <p>
+                    <small>Presented by
+                        <a href="https://github.com/bashz">Bashz</a>
+                    </small>
+                </p>
+            </section>
         </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
-        <script>
-            Reveal.initialize({
-              controls: true,
-              progress: true,
-              history: true,
-              center: true,
-              transition: 'slide',
-              dependencies: [
-                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js', condition: function () {
-                    return !document.body.classList;
-                  }},
-                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, callback: function () {
-                    hljs.initHighlightingOnLoad();
-                  }},
-                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/zoom-js/zoom.js', async: true},
-                {src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js', async: true}
-              ]
-            });
-        </script>
-    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'slide',
+            dependencies: [
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js', condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', async: true, callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/zoom-js/zoom.js', async: true },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
 </html>
