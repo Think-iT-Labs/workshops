@@ -167,8 +167,38 @@
                 </section>
             </section>
             <section>
+                <h4>Material</h4>
+                <pre class="pre-html">
+                    <code class="html hljs" data-trim contenteditable>
+&lt;a-entity geometry="primitive: cylinder"
+    material="src: treebark.png; color: #696969; roughness: 1; metalness: 0">
+&lt;/a-entity>
+                </code>
+            </pre>
+            </section>
+            <section>
                 <h4>architecture</h4>
-                <img src="images/webVR.png" style="width: 40%"/>
+                <section>
+                    <img src="images/webVR.png" style="width: 40%" />
+                </section>
+                <section>
+                    <h2>Entity-Component-System </h2>
+                </section>
+            </section>            
+            <section>
+                <h4>Animation</h4>
+                <section>
+                    <pre class="pre-html">
+                        <code class="html hljs" data-trim contenteditable>
+&lt;a-entity id="blushing-cube" geometry="primitive: box">
+    &lt;a-animation attribute="material.color" from="white" to="red" dur="1000">&lt;/a-animation>
+&lt;/a-entity>
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <a href="https://github.com/rexraptor08/animation-controls/blob/master/index.html">Animation mixin</a>
+                </section>
             </section>
         </div>
     </div>
