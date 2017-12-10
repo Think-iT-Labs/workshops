@@ -31,6 +31,145 @@
                     </small>
                 </p>
             </section>
+            <section>
+                <h3>Introduction</h3>
+                <section>
+                    <p>
+                        On est dans la periode où les technologies ascendante commencent à migrer vers le web, prenant l'exemple de google docs qui
+                        a remplacé l'office.
+                    </p>
+                    <p class="fragment fade-up">
+                        Les technologies 3D ne font pas l'exception, même le VR existe aujourd'hui sur le web.
+                    </p>
+                </section>
+                <section>
+                    <h5>webGL</h5>
+                    <p class="fragment fade-up">
+                        webGL est la technology fondamentale responsable de l'existance du 3D sur le web.
+                    </p>
+                    <p class="fragment fade-up">
+                        Généralement on ne travaille pas directement sur webGL, on utilise plutôt une librairie ou un framework (comme Three.js)
+                        pour faire la plupart du travaille pour nous.
+                    </p>
+                </section>
+                <section>
+                    <h5>VR principe fondamentale</h5>
+                    <p class="fragment fade-up">
+                        Le principe du VR consiste à faire deux rendu de la même scene, où chaque rendu est pris depuis deux points raprochés (yeux)
+                        avec un légèr changement d'angle.
+                    </p>
+                </section>
+                <section>
+                    <h5>VR vs webVR</h5>
+                    <ul>
+                        <li class="fragment fade-up">le webVR ne nécessite pas d'installation</li>
+                        <li class="fragment fade-up">le webVR est cross plateform et vient avec la connectivité http(s)</li>
+                        <li class="fragment fade-up">le VR utilise moin de ressources</li>
+                        <li class="fragment fade-up">le VR est plus mature et possede plus de support</li>
+                    </ul>
+                </section>
+                <section>
+                    <h5>technologies webVR</h5>
+                    <ul>
+                        <li class="fragment fade-up">
+                            <a href="https://facebook.github.io/react-vr/">React VR</a> (Facebook)</li>
+                        <li class="fragment fade-up">
+                            <a href="https://aframe.io">Aframe.io</a> (Mozilla)</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h4>aframe</h4>
+                <section>
+                    <h6>Mise en place</h6>
+                    <pre class="pre-html">
+                        <code class="html hljs" data-trim contenteditable> 
+&lt;html>
+&lt;head>
+    &lt;script src="https://aframe.io/releases/0.7.0/aframe.min.js">&lt;/script>
+&lt;/head>
+&lt;body>
+...
+&lt;/body>
+&lt;/html>
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h6>HTML declarative</h6>
+                    <pre class="pre-html">
+                            <code class="html hljs" data-trim contenteditable> 
+&lt;body>
+    &lt;a-scene>
+        &lt;a-box position="-1 0.5 -3" color="#4CC3D9">&lt;/a-box>
+    &lt;/a-scene>
+&lt;/body>
+                            </code>
+                        </pre>
+                </section>
+                <section>
+                    <h6>Environement</h6>
+                    <pre class="pre-html">
+                        <code class="html hljs" data-trim contenteditable> 
+&lt;a-scene>
+    &lt;a-box position="-1 0.5 -3" color="#4CC3D9">&lt;/a-box>
+    &lt;a-light color="red" position="-1 1 0">&lt;/a-light>
+    &lt;a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body>&lt;/a-plane>
+    &lt;a-sky color="#ECECEC">&lt;/a-sky>
+    &lt;a-sound src="src: url(ambiance.mp3)" autoplay="true" position="0 2 5">&lt;/a-sound>
+&lt;/a-scene>
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h6>Preloading</h6>
+                    <pre class="pre-html">
+                        <code class="html hljs" data-trim contenteditable>
+&lt;a-assets>
+    &lt;a-asset-item id="ambiance" src="/path/to/ambiance.mp4">&lt;/a-asset-item>
+&lt;/a-assets>
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h6>Primitives</h6>
+                    <ul>
+                        <li>&lt;a-camera&gt;</li>
+                        <li>&lt;a-circle&gt;</li>
+                        <li>&lt;a-collada-model&gt;</li>
+                        <li>&lt;a-cone&gt;</li>
+                        <li>&lt;a-cursor&gt;</li>
+                        <li>&lt;a-curvedimage&gt;</li>
+                        <li>&lt;a-cylinder&gt;</li>
+                    </ul>
+                </section>
+                <section>
+                    <h6>Primitives</h6>
+                    <ul>
+                        <li>&lt;a-gltf-model&gt;</li>
+                        <li>&lt;a-image&gt;</li>
+                        <li>&lt;a-link&gt;</li>
+                        <li>&lt;a-obj-model&gt;</li>
+                        <li>&lt;a-ring&gt;</li>
+                        <li>&lt;a-sphere&gt;</li>
+                        <li>&lt;a-text&gt;</li>
+                    </ul>
+                </section>
+                <section>
+                    <h6>Primitives</h6>
+                    <ul>
+                        <li>&lt;a-torus-knot&gt;</li>
+                        <li>&lt;a-torus&gt;</li>
+                        <li>&lt;a-triangle&gt;</li>
+                        <li>&lt;a-video&gt;</li>
+                        <li>&lt;a-videosphere&gt;</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h4>architecture</h4>
+                <img src="images/webVR.png" style="width: 40%"/>
+            </section>
         </div>
     </div>
 
